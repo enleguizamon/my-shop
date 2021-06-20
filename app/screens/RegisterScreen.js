@@ -1,7 +1,28 @@
 import React, { useState } from "react";
 import { Modal, StyleSheet, Text, TextInput, View, Button } from "react-native";
 
+import DateTimePicker from "@react-native-community/datetimepicker";
+
 function RegisterScreen(props) {
+  const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState("date");
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === "ios");
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode("date");
+  };
+
   return (
     <Modal visible={props.visible} animationType="slide">
       <Text style={styles.text}>Registrate en nuestra App</Text>
@@ -14,8 +35,23 @@ function RegisterScreen(props) {
           keyboardType={"numeric"}
           maxLength={2}
         />
-        <TextInput style={styles.input} placeholder="Fecha de nacimiento" />
+        <Text style={styles.input}>{date.toLocaleDateString()}</Text>
+        <View>
+          <View>
+            <Button onPress={showDatepicker} title="Show date picker!" />
+          </View>
 
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={date}
+              mode={mode}
+              is24Hour={true}
+              display="default"
+              onChange={onChange}
+            />
+          )}
+        </View>
         <Button title="Registrarme" />
       </View>
     </Modal>
