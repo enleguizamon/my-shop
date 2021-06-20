@@ -10,7 +10,7 @@ function RegisterScreen(props) {
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(Platform.OS === "ios");
+    setShow(Platform.OS === "Android");
     setDate(currentDate);
   };
 
@@ -35,12 +35,16 @@ function RegisterScreen(props) {
           keyboardType={"numeric"}
           maxLength={2}
         />
-        <Text style={styles.input}>{date.toLocaleDateString()}</Text>
         <View>
-          <View>
-            <Button onPress={showDatepicker} title="Show date picker!" />
-          </View>
-
+          <Button
+            onPress={showDatepicker}
+            title="Seleccionar fecha de nacimiento"
+          />
+        </View>
+        <Text style={styles.input}>
+          {`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} `}
+        </Text>
+        <View>
           {show && (
             <DateTimePicker
               testID="dateTimePicker"
