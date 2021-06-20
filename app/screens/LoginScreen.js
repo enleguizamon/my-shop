@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Modal, TextInput, View, StyleSheet, Button, Text } from "react-native";
+import {
+  Modal,
+  TextInput,
+  View,
+  StyleSheet,
+  Button,
+  Text,
+  Alert,
+} from "react-native";
 
 function LoginScreen(props) {
   const [inputUser, setInputUser] = useState("");
@@ -7,11 +15,11 @@ function LoginScreen(props) {
 
   const checkTextInput = () => {
     if (!inputUser.trim()) {
-      alert("Por favor ingrese su nombre de usuario");
+      Alert.alert("Advertencia", "Por favor ingrese su nombre de usuario");
       return;
     }
     if (!inputPassword.trim()) {
-      alert("Por favor ingrese su contraseña");
+      Alert.alert("Advertencia", "Por favor ingrese su contraseña");
       return;
     }
   };
@@ -48,8 +56,8 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "80%",
-    borderBottomColor: "black",
-    borderWidth: 1,
+    borderBottomColor: "#000000",
+    borderBottomWidth: 1,
     padding: 10,
     marginBottom: 40,
   },

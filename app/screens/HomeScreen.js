@@ -9,9 +9,11 @@ import {
 } from "react-native";
 
 import LoginScreen from "./LoginScreen";
+import RegisterScreen from "./RegisterScreen";
 
 function HomeScreen() {
-  const [isModal, setIsModal] = useState(false);
+  const [isModalLogin, setIsModalLogin] = useState(false);
+  const [isModalRegister, setIsModalRegister] = useState(false);
 
   return (
     <ImageBackground
@@ -19,19 +21,23 @@ function HomeScreen() {
       source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../assets/logo.png")} />
         <Text style={styles.title}>Vendé lo que no necesitás</Text>
+        <Image style={styles.logo} source={require("../assets/logo.png")} />
       </View>
       <TouchableOpacity
         style={styles.loginButton}
-        onPress={() => setIsModal(true)}
+        onPress={() => setIsModalLogin(true)}
       >
         <Text style={styles.login}>LOGIN</Text>
       </TouchableOpacity>
-      <LoginScreen visible={isModal} />
-      <TouchableOpacity style={styles.registerButton}>
+      <LoginScreen visible={isModalLogin} />
+      <TouchableOpacity
+        style={styles.registerButton}
+        onPress={() => setIsModalRegister(true)}
+      >
         <Text style={styles.login}>REGISTRARSE</Text>
       </TouchableOpacity>
+      <RegisterScreen visible={isModalRegister} />
     </ImageBackground>
   );
 }
@@ -52,8 +58,9 @@ const styles = StyleSheet.create({
     height: 130,
   },
   title: {
-    marginTop: 60,
-    fontSize: 28,
+    marginTop: -35,
+    marginBottom: 30,
+    fontSize: 30,
     color: "#282828",
     fontWeight: "bold",
   },
