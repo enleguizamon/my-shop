@@ -1,12 +1,24 @@
-import React, { useState } from "react";
-import { Modal, StyleSheet, Text, TextInput, View, Button } from "react-native";
+import React, { useState, useRef } from "react";
+import {
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 
 function RegisterScreen(props) {
+  //estado del date picker
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
+  //estado de la nacionalidad
+  const [selectedCountry, setSelectedCountry] = useState();
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -23,6 +35,14 @@ function RegisterScreen(props) {
     showMode("date");
   };
 
+  const pickerRef = useRef();
+
+  // const checkTextInput = () => {
+  //   if (!inputUser.trim()) {
+  //     Alert.alert("Advertencia", "Por favor ingrese su nombre de usuario");
+  //     return;
+  //   }
+
   return (
     <Modal visible={props.visible} animationType="slide">
       <Text style={styles.text}>Registrate en nuestra App</Text>
@@ -36,10 +56,9 @@ function RegisterScreen(props) {
           maxLength={2}
         />
         <View>
-          <Button
-            onPress={showDatepicker}
-            title="Seleccionar fecha de nacimiento"
-          />
+          <TouchableOpacity onPress={showDatepicker}>
+            <Text style={styles.date}>Seleccionar fecha de nacimiento</Text>
+          </TouchableOpacity>
         </View>
         <Text style={styles.input}>
           {`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} `}
@@ -56,6 +75,20 @@ function RegisterScreen(props) {
             />
           )}
         </View>
+        <Text style={styles.country}>Seleccionar Nacionalidad</Text>
+        <Picker
+          mode="dropdown"
+          style={{ height: 50, width: 150, bottom: 20, marginBottom: 10 }}
+          ref={pickerRef}
+          selectedValue={selectedCountry}
+          onValueChange={(itemValue, itemIndex) =>
+            setSelectedCountry(itemValue)
+          }
+        >
+          <Picker.Item label="Argentina" value="Argentina" />
+          <Picker.Item label="Brasil" value="Brasil" />
+          <Picker.Item label="Uruguay" value="Uruguay" />
+        </Picker>
         <Button title="Registrarme" />
       </View>
     </Modal>
@@ -74,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    top: 30,
+    top: 50,
   },
   input: {
     width: "80%",
@@ -82,6 +115,28 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     padding: 10,
     marginBottom: 40,
+  },
+  date: {
+    marginLeft: -90,
+    marginBottom: 10,
+    backgroundColor: "#33adff",
+    padding: 5,
+    borderRadius: 3,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 7,
+  },
+  country: {
+    marginTop: 20,
+    bottom: 25,
+    alignSelf: "flex-start",
+    left: 50,
   },
 });
 
