@@ -10,9 +10,12 @@ import {
 } from "react-native";
 
 function LoginScreen(props) {
+  //estado para el nombre de usuario
   const [inputUser, setInputUser] = useState("");
+  //estado para la password
   const [inputPassword, setInputPassword] = useState("");
 
+  //chequea existencia en los inputs
   const checkTextInput = () => {
     if (!inputUser.trim()) {
       Alert.alert("Advertencia", "Por favor ingrese su nombre de usuario");
