@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import {
-  Modal,
   StyleSheet,
   Text,
   TextInput,
@@ -9,20 +8,23 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-
+//para seleccionar fecha de nacimiento
 import DateTimePicker from "@react-native-community/datetimepicker";
+//para seleccionar país
 import { Picker } from "@react-native-picker/picker";
 
 function RegisterScreen(props) {
   //estado para nombre y apellido
   const [name, setName] = useState("");
-  //estado para la edad
-  const [age, setAge] = useState("");
+  //estado para el mail
+  const [email, setEmail] = useState("");
   //estados del date picker
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
   const [dateHasChanged, setDateHasChanged] = useState(false);
+  //estado de la ciudad
+  const [city, setCity] = useState("");
   //estado de la nacionalidad
   const [selectedCountry, setSelectedCountry] = useState();
 
@@ -48,22 +50,28 @@ function RegisterScreen(props) {
       Alert.alert("Advertencia", "Por favor ingrese tu nombre y apellido");
       return;
     }
-    if (!age.trim()) {
-      Alert.alert("Advertencia", "Por favor ingrese tu edad");
+    if (!email.includes("@")) {
+      Alert.alert("Advertencia", "Por favor ingrese un email correcto");
       return;
     }
     if (!dateHasChanged) {
       Alert.alert("Advertencia", "Por favor seleccioná tu fecha de nacimiento");
       return;
     }
+    if (!city) {
+      Alert.alert("Advertencia", "Por favor ingresá tu ciudad");
+      return;
+    }
     if (!selectedCountry) {
       Alert.alert("Advertencia", "Por favor seleccioná tu nacionalidad");
       return;
     }
+    //navegacion hacia pagina de bienvenida
+    props.navigation.navigate("Welcome");
   };
 
   return (
-    <Modal visible={props.visible} animationType="slide">
+    <View style={styles.container}>
       <Text style={styles.text}>Registrate en nuestra App</Text>
       <View style={styles.inputsContainer}>
         <TextInput
@@ -73,11 +81,8 @@ function RegisterScreen(props) {
         />
         <TextInput
           style={styles.input}
-          placeholder="Edad"
-          numeric
-          keyboardType={"numeric"}
-          maxLength={2}
-          onChangeText={(value) => setAge(value)}
+          placeholder="Email"
+          onChangeText={(value) => setEmail(value)}
         />
         <View>
           <TouchableOpacity onPress={showDatepicker}>
@@ -99,6 +104,11 @@ function RegisterScreen(props) {
             />
           )}
         </View>
+        <TextInput
+          placeholder="Ciudad"
+          style={styles.input}
+          onChangeText={(value) => setCity(value)}
+        />
         <Picker
           mode="dropdown"
           style={styles.picker}
@@ -108,7 +118,7 @@ function RegisterScreen(props) {
             setSelectedCountry(itemValue)
           }
         >
-          <Picker.Item label="Seleccioná tu nacionalidad" value="" />
+          <Picker.Item label="País" value="" />
           <Picker.Item label="Argentina" value="Argentina" />
           <Picker.Item label="Brasil" value="Brasil" />
           <Picker.Item label="Uruguay" value="Uruguay" />
@@ -116,23 +126,28 @@ function RegisterScreen(props) {
         </Picker>
         <Button title="Registrarme" onPress={checkInputs} />
       </View>
-    </Modal>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: "80%",
+  },
   text: {
     alignSelf: "center",
     width: "80%",
     fontSize: 20,
-    left: 17,
-    top: 60,
+    left: 40,
+    top: 30,
   },
   inputsContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    top: 40,
+    top: 120,
   },
   input: {
     width: "80%",
@@ -140,6 +155,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     padding: 10,
     marginBottom: 40,
+    width: 300,
   },
   date: {
     marginLeft: -75,
@@ -160,8 +176,8 @@ const styles = StyleSheet.create({
   },
   picker: {
     height: 50,
-    marginLeft: -50,
-    width: 258,
+    marginLeft: -150,
+    width: 135,
     bottom: 20,
     marginBottom: 10,
   },

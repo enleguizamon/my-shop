@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f80666-3a07-45f9-9823-be5a83a66eb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/RegisterScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -26,7 +28,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demonb" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -41,9 +43,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="302" y="155" width="459" height="325" key="AVDManager" timestamp="1624159384605">
+    <state x="302" y="155" width="459" height="325" key="AVDManager" timestamp="1624297356204">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="302" y="155" width="459" height="325" key="AVDManager/0.0.1280.680/-1920.-218.1280.680@0.0.1280.680" timestamp="1624159384605" />
+    <state x="302" y="155" width="459" height="325" key="AVDManager/0.0.1280.680/-1920.-218.1280.680@0.0.1280.680" timestamp="1624297356204" />
+    <state x="0" y="0" key="FileChooserDialogImpl" timestamp="1624298826352">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" key="FileChooserDialogImpl/0.0.1280.680/-1920.-218.1280.680@0.0.1280.680" timestamp="1624298826352" />
   </component>
 </project>

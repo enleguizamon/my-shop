@@ -25,10 +25,12 @@ function LoginScreen(props) {
       Alert.alert("Advertencia", "Por favor ingrese su contraseña");
       return;
     }
+    //se usa para no volver al login con la flecha, lo omite despues de loguearse
+    props.navigation.replace("Welcome");
   };
 
   return (
-    <Modal visible={props.visible} animationType="slide">
+    <View style={styles.container}>
       <Text style={styles.text}>
         Ingresá tu usuario y contraseña para ver todos los productos!
       </Text>
@@ -46,19 +48,24 @@ function LoginScreen(props) {
         />
         <Button title="Ingresar" onPress={checkTextInput} />
       </View>
-    </Modal>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: "80%",
+  },
   inputsContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: -60,
+    marginTop: 100,
   },
   input: {
-    width: "80%",
+    width: 200,
     borderBottomColor: "#000000",
     borderBottomWidth: 1,
     padding: 10,
