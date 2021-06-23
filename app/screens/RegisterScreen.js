@@ -67,7 +67,7 @@ function RegisterScreen(props) {
       return;
     }
     //navegacion hacia pagina de bienvenida
-    props.navigation.navigate("Welcome");
+    props.navigation.replace("Welcome");
   };
 
   return (
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   picker: {
     height: 50,
     marginLeft: -150,
-    width: 135,
+    width: 140,
     bottom: 20,
     marginBottom: 10,
   },

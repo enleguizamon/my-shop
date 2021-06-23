@@ -19,38 +19,6 @@ function CartScreen({ navigation }) {
         keyExtractor={(item, index) => index.toString()}
         style={styles.flatList}
       />
-
-      {/* <View style={styles.listContainer}>
-        <FlatList
-          data={navigation.getParam("quantities")}
-          renderItem={(itemData) => (
-            <Text style={styles.listItems}>{itemData.item}</Text>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-        <FlatList
-          data={navigation.getParam("title")}
-          renderItem={(itemData) => (
-            <Text style={styles.listItems}>{itemData.item}</Text>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-        <FlatList
-          data={navigation.getParam("price")}
-          renderItem={(itemData) => (
-            <Text style={styles.listItems}>$ {itemData.item}</Text>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
-      <View style={styles.totalContainer}>
-        <Text style={styles.total}>
-          Total de la compra: ${navigation.getParam("total")}
-        </Text>
-      </View>
-      <View>
-        <Text>¡Muchas gracias!</Text>
-      </View> */}
       <Text style={styles.total}>
         Total de la compra: ${navigation.getParam("total")}
       </Text>
@@ -79,13 +47,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: 300,
+    width: 340,
     marginBottom: 10,
     backgroundColor: "white",
     borderRadius: 3,
   },
   listItems: {
     fontSize: 20,
+    paddingLeft: 3,
   },
   image: {
     height: 60,

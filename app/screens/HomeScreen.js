@@ -6,7 +6,6 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Button,
 } from "react-native";
 
 function HomeScreen(props) {

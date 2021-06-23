@@ -147,8 +147,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    height: "100%",
-    width: "100%",
+    resizeMode: "stretch",
   },
   productContainer: {
     flexDirection: "row",
@@ -168,11 +167,11 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   descriptionContainer: {
-    left: 10,
+    left: 15,
   },
   image: {
     height: 240,
-    width: 170,
+    width: 175,
     resizeMode: "stretch",
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   content: {
-    top: 150,
+    top: 160,
   },
   title: {
     color: "#ffcc00",
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
     textShadowColor: "#686868",
-    marginBottom: 63,
+    marginBottom: 60,
   },
 });
 export default WelcomeScreen;
