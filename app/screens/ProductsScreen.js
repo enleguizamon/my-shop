@@ -9,9 +9,11 @@ import {
 } from "react-native";
 
 function ProductsScreen(props) {
+  const selectedCategory = props.navigation.getParam("category");
   //la lista de productos se encuentra en un estado
   const [products, setProducts] = useState([
     {
+      category: "Hogar",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp0IKBPBW3aAVgEQnz5QxYv2MWCGPQFV7T6-n0fhWgTPCRFQ3TahDUuDpkfdqe6u8uwzw&usqp=CAU",
       title: "Maceta",
@@ -19,6 +21,7 @@ function ProductsScreen(props) {
       quantity: 0,
     },
     {
+      category: "Hogar",
       image:
         "https://http2.mlstatic.com/D_NQ_NP_2X_833251-MLA42106877824_062020-F.webp",
       title: "Velador",
@@ -26,6 +29,7 @@ function ProductsScreen(props) {
       quantity: 0,
     },
     {
+      category: "Hogar",
       image:
         "https://assets.weimgs.com/weimgs/ab/images/wcm/products/202115/0259/reeve-mid-century-coffee-table-walnut-c.jpg",
       title: "Mesa",
@@ -33,6 +37,7 @@ function ProductsScreen(props) {
       quantity: 0,
     },
     {
+      category: "Hogar",
       image:
         "https://http2.mlstatic.com/D_NQ_NP_2X_765542-MLA45799468525_052021-F.webp",
       title: "Almohadones",
@@ -40,6 +45,7 @@ function ProductsScreen(props) {
       quantity: 0,
     },
     {
+      category: "Hogar",
       image:
         "http://www.americanwood.com.ar/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/a/castor_ambientado.jpg",
       title: "Silón",
@@ -47,6 +53,7 @@ function ProductsScreen(props) {
       quantity: 0,
     },
     {
+      category: "Indumentaria",
       image:
         "https://i.pinimg.com/564x/e5/f2/e2/e5f2e2801e2a1fac7892fd8e46bb2b8f.jpg",
       title: "Espejo",
@@ -103,7 +110,9 @@ function ProductsScreen(props) {
       <Text style={styles.productsTitle}>Nuestros productos</Text>
       <FlatList
         //map de los productos
-        data={products}
+        data={products.filter((product) =>
+          selectedCategory ? product.category === selectedCategory : true
+        )}
         renderItem={(itemData) => (
           <View style={styles.productContainer}>
             <Image source={{ uri: itemData.item.image }} style={styles.image} />

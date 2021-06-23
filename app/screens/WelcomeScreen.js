@@ -14,6 +14,11 @@ function WelcomeScreen(props) {
           title="Mirá todos nuestro productos"
           onPress={() => props.navigation.navigate("Products")}
         />
+        <View style={{ marginBottom: 5, height: 10 }}></View>
+        <Button
+          title="Mirá nuestros productos por categorías"
+          onPress={() => props.navigation.navigate("Categories")}
+        />
       </View>
     </ImageBackground>
   );

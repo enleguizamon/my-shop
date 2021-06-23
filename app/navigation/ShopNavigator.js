@@ -8,6 +8,7 @@ import WelcomeScreen from "../screens/WelcomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import ProductsScreen from "../screens/ProductsScreen";
 import CartScreen from "../screens/CartScreen";
+import CategoriesScreen from "../screens/CategoriesScreen";
 
 const ShopNavigator = createStackNavigator({
   Home: HomeScreen,
@@ -16,6 +17,7 @@ const ShopNavigator = createStackNavigator({
   Welcome: WelcomeScreen,
   Products: ProductsScreen,
   Cart: CartScreen,
+  Categories: CategoriesScreen,
 });
 
 export default createAppContainer(ShopNavigator);
