@@ -47,7 +47,6 @@ function ProductsScreen(props) {
       quantity: 0,
     },
     {
-      id: 5,
       image:
         "https://i.pinimg.com/564x/e5/f2/e2/e5f2e2801e2a1fac7892fd8e46bb2b8f.jpg",
       title: "Espejo",

@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, Image } from "react-native";
 
+//llegan las props de navigate
 function CartScreen({ navigation }) {
   return (
     <View style={styles.container}>
@@ -8,12 +9,15 @@ function CartScreen({ navigation }) {
       <FlatList
         data={navigation.getParam("products")}
         renderItem={(ItemData) => (
-          <View>
-            <Text>{ItemData.item.quantity}</Text>
-            <Text>{ItemData.item.title}</Text>
+          <View style={styles.listContainer}>
+            <Image source={{ uri: ItemData.item.image }} style={styles.image} />
+            <Text style={styles.listItems}>{ItemData.item.quantity}</Text>
+            <Text style={styles.listItems}>{ItemData.item.title}</Text>
+            <Text style={styles.listItems}>$ {ItemData.item.price}</Text>
           </View>
         )}
         keyExtractor={(item, index) => index.toString()}
+        style={styles.flatList}
       />
 
       {/* <View style={styles.listContainer}>
@@ -50,6 +54,7 @@ function CartScreen({ navigation }) {
       <Text style={styles.total}>
         Total de la compra: ${navigation.getParam("total")}
       </Text>
+      <Text style={styles.thanks}>¡Muchas gracias!</Text>
     </View>
   );
 }
@@ -65,26 +70,36 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginBottom: 40,
   },
+  flatList: {
+    height: 50,
+  },
   listContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     flexDirection: "row",
+    justifyContent: "space-between",
     width: 300,
-    borderColor: "red",
-    borderWidth: 1,
+    marginBottom: 10,
+    backgroundColor: "white",
+    borderRadius: 3,
   },
   listItems: {
-    borderColor: "red",
-    borderWidth: 1,
     fontSize: 20,
-    marginBottom: 5,
   },
-  totalContainer: {
-    flex: 1,
-    flexDirection: "row",
-    marginTop: 30,
+  image: {
+    height: 60,
+    width: 50,
   },
   total: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 20,
+    marginBottom: 20,
+  },
+  thanks: {
+    fontWeight: "bold",
+    fontSize: 20,
+    height: 200,
   },
 });
 export default CartScreen;
