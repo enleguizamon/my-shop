@@ -53,11 +53,91 @@ function ProductsScreen(props) {
       quantity: 0,
     },
     {
-      category: "Indumentaria",
+      category: "Hogar",
       image:
         "https://i.pinimg.com/564x/e5/f2/e2/e5f2e2801e2a1fac7892fd8e46bb2b8f.jpg",
       title: "Espejo",
       price: 4000,
+      quantity: 0,
+    },
+    {
+      category: "Indumentaria",
+      image:
+        "https://statics.glamit.com.ar/media/catalog/product/w/a/wanama_110.230901_01_5web.jpg",
+      title: "Remera",
+      price: 2000,
+      quantity: 0,
+    },
+    {
+      category: "Indumentaria",
+      image:
+        "https://i.pinimg.com/originals/c3/39/14/c339149de4a2ac189b914ac749b78b98.jpg",
+      title: "Pantalón",
+      price: 4000,
+      quantity: 0,
+    },
+    {
+      category: "Indumentaria",
+      image:
+        "https://bizarro.vteximg.com.br/arquivos/ids/827773-720-720/ZAPATILLAS-MUJER-GISELDA-18533-METALIZ-VIZZANO_36622.jpg?v=637310460498100000",
+      title: "Zapatillas",
+      price: 8000,
+      quantity: 0,
+    },
+    {
+      category: "Indumentaria",
+      image:
+        "https://i.pinimg.com/474x/7d/03/89/7d03890dfc5125a55aa4547b9f2ebe73.jpg",
+      title: "Campera",
+      price: 12000,
+      quantity: 0,
+    },
+    {
+      category: "Indumentaria",
+      image:
+        "https://i.pinimg.com/474x/7f/53/54/7f53540ab73d12d4a811881920b97ac3.jpg",
+      title: "Sweter",
+      price: 6000,
+      quantity: 0,
+    },
+    {
+      category: "Tecnologia",
+      image:
+        "https://i.pinimg.com/474x/91/93/7e/91937e173d8bc4dcfef68cf797701654.jpg",
+      title: "Laptop",
+      price: 90000,
+      quantity: 0,
+    },
+    {
+      category: "Tecnologia",
+      image:
+        "https://i.pinimg.com/474x/8b/ce/bd/8bcebd0a696aafb274435b0a4b3aae67.jpg",
+      title: "Mouse",
+      price: 2000,
+      quantity: 0,
+    },
+    {
+      category: "Tecnologia",
+      image:
+        "https://i.pinimg.com/474x/74/a6/68/74a668c06999625a491d9ceb56f30708.jpg",
+      title: "Teclado",
+      price: 5000,
+      quantity: 0,
+    },
+    {
+      category: "Tecnologia",
+      image:
+        "https://i.pinimg.com/474x/68/a3/f2/68a3f2336c065c0dca0f254ba5f612b7.jpg",
+      title: "Monitor PC",
+      price: 28000,
+      quantity: 0,
+    },
+    {
+      category: "Tecnologia",
+      image:
+        "https://i.pinimg.com/474x/3f/e9/81/3fe981360c87418bcb5dce1cb866ae29.jpg",
+      title: "Auriculares",
+      price: 8000,
       quantity: 0,
     },
   ]);
